@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container-fluid bg-light d-flex align-items-center justify-content-center" style="height:80vh;">
+
+    <div class="w-25 border border-1 p-5 rounded-4">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %} 
+            <label for="">Usuário:</label>
+            <input type="text" name="nome" class="form-control" id="">
+            <label for="">Senha:</label>
+            <input type="text" name="senha" class="form-control" id="">
+            <input type="submit" value="Login"  class="d-block mx-auto btn btn-dark mt-2">
+        </form>
+    </div>
+</div>
+{% endblock %}

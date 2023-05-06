@@ -1,0 +1,59 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}      
+    <main>
+{% if user.is_authenticated %}
+Bem-vindo, {{user.username}}
+{% endif %}
+        <section class="destaques">
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div class="card mx-auto" style="width:25rem;"  >
+                        <img src="{% static 'blog_files/img/img2.jpg' %}" class="card-img-top" style="height:16rem;" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Lógica de Programação</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consequatur soluta deserunt ad, accusantium aut cumque modi voluptatem libero at alias officiis sequi quidem explicabo optio deleniti ut eius qui.</p>
+                          <a href="{% url 'page_post' %}" class="btn btn-dark">Leia Mais</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="card mx-auto" style="width:25rem;">
+                        <img src="{% static 'blog_files/img/img1.jpg' %}" class="card-img-top" style="height:16rem;" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Desenvolvimento Frontend</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo accusantium adipisci, corporis inventore nostrum modi repudiandae ducimus a dignissimos possimus ipsum culpa perspiciatis impedit quam deserunt quo eius, perferendis autem?</p>
+                          <a href="{% url 'page_post' %}" class="btn btn-dark">Leia Mais</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mx-auto" style="width:25rem;"  >
+                        <img src="{% static 'blog_files/img/img3.jpg' %}" class="card-img-top" style="height:16rem;" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Desenvolvimento Backend</h5>
+                          <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit unde, ullam eos repudiandae eveniet minima nesciunt optio veniam adipisci error eum mollitia laudantium, exercitationem aperiam. Ut amet debitis perspiciatis distinctio?</p>
+                          <a href="{% url 'page_post' %}" class="btn btn-dark">Leia Mais</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+        <section class="container mt-4 publicacoes">
+            {% for i in dados %}
+            <div class="row border my-3 bg-light border-light">
+                <div class="col-12 col-md-4">
+                    <img src="{% static 'blog_files/img/img2.jpg' %}" class="img-fluid d-block mx-auto rounded-2" style="height:15rem;" alt="">
+                </div>
+                <div class="col-12 col-md-8 d-flex align-items-center flex-column ">
+                    <h3>{{i.titulo}}</h3>
+                    <p class="p-3" >{{i.texto|slice:'0:650'}}</p>
+                </div>
+            </div>
+            {% endfor %}
+           
+
+        </section>
+
+    </main>
+{% endblock %}

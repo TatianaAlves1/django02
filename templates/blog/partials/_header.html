@@ -1,0 +1,32 @@
+<header class="container-fluid p-5 bg-light border border-bottom">
+    <div class="row">
+        <div class="col-md-2 col-10"><h2>Blog Senac</h2></div>
+        <div class="col-md-10 col-12 text-end">
+            <nav>
+                <a class="btn btn-outline-dark" data-bs-toggle="offcanvas" href="#menu-lateral" role="button" aria-controls="menu-lateral">
+                   Menu
+                  </a>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="menu-lateral" aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu Lateral</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <div>
+                        <ul style="list-style: none;">
+                            <li><a href="{% url 'home_blog' %}">Home</a></li>
+                            <li><a href="{% url 'form_login' %}" class="btn btn-block btn-outline-dark">Login</a></li>
+                            <li><a href="{% url 'form_cad_user' %}">Cadastro</a></li>
+                            {% if user.is_authenticated %}
+                              <li><a href="#">Logado</a></li>
+                            {% else %}
+                            <li><a href="#">Não logado</a></li>
+                            {% endif %}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+            </nav>
+        </div>
+    </div>   
+</header>
